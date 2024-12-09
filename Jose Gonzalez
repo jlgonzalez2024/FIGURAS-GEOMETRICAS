@@ -1,0 +1,88 @@
+using System;
+
+// Clase base Figura, que será heredada por las demás figuras geométricas
+public abstract class Figura
+{
+    // Método abstracto para calcular el área
+    public abstract double CalcularArea();
+
+    // Método abstracto para calcular el perímetro
+    public abstract double CalcularPerimetro();
+}
+
+// Clase Círculo que hereda de Figura
+public class Circulo : Figura
+{
+    // Propiedad privada para el radio del círculo
+    private double radio;
+
+    // Constructor que inicializa el radio
+    public Circulo(double radio)
+    {
+        this.radio = radio;
+    }
+
+    // Método para calcular el área del círculo
+    // CalcularArea es una función que devuelve un valor double, se utiliza para calcular el área de un círculo, requiere como argumento el radio del círculo
+    public override double CalcularArea()
+    {
+        // Fórmula: A = PI * radio^2
+        return Math.PI * radio * radio;
+    }
+
+    // Método para calcular el perímetro del círculo
+    // CalcularPerimetro es una función que devuelve un valor double, se utiliza para calcular el perímetro de un círculo, requiere como argumento el radio del círculo
+    public override double CalcularPerimetro()
+    {
+        // Fórmula: P = 2 * PI * radio
+        return 2 * Math.PI * radio;
+    }
+}
+
+// Clase Cuadrado que hereda de Figura
+public class Cuadrado : Figura
+{
+    // Propiedad privada para el lado del cuadrado
+    private double lado;
+
+    // Constructor que inicializa el lado
+    public Cuadrado(double lado)
+    {
+        this.lado = lado;
+    }
+
+    // Método para calcular el área del cuadrado
+    // CalcularArea es una función que devuelve un valor double, se utiliza para calcular el área de un cuadrado, requiere como argumento el lado del cuadrado
+    public override double CalcularArea()
+    {
+        // Fórmula: A = lado^2
+        return lado * lado;
+    }
+
+    // Método para calcular el perímetro del cuadrado
+    // CalcularPerimetro es una función que devuelve un valor double, se utiliza para calcular el perímetro de un cuadrado, requiere como argumento el lado del cuadrado
+    public override double CalcularPerimetro()
+    {
+        // Fórmula: P = 4 * lado
+        return 4 * lado;
+    }
+}
+
+// Clase principal para probar el código
+public class Program
+{
+    public static void Main()
+    {
+        // Crear un objeto de la clase Circulo con un radio de 5
+        Circulo circulo = new Circulo(5);
+        Console.WriteLine("Círculo:");
+        Console.WriteLine("Área: " + circulo.CalcularArea());
+        Console.WriteLine("Perímetro: " + circulo.CalcularPerimetro());
+
+        // Crear un objeto de la clase Cuadrado con un lado de 4
+        Cuadrado cuadrado = new Cuadrado(4);
+        Console.WriteLine("\nCuadrado:");
+        Console.WriteLine("Área: " + cuadrado.CalcularArea());
+        Console.WriteLine("Perímetro: " + cuadrado.CalcularPerimetro());
+    }
+}
